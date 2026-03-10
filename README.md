@@ -26,7 +26,20 @@ curl -sL "$(curl -s https://api.github.com/repos/rodor03/externcashai-vscode-rel
 $u=(Invoke-RestMethod https://api.github.com/repos/rodor03/externcashai-vscode-releases/releases/latest).assets[0].browser_download_url; Invoke-WebRequest $u -OutFile "$env:TEMP\externcashai.vsix"; code --install-extension "$env:TEMP\externcashai.vsix"; Remove-Item "$env:TEMP\externcashai.vsix"
 ```
 
-> Для **VS Code Insiders** замените `code` на `code-insiders` в команде выше.
+<details>
+<summary><b>VS Code Insiders</b></summary>
+
+**Linux / macOS:**
+```bash
+curl -sL "$(curl -s https://api.github.com/repos/rodor03/externcashai-vscode-releases/releases/latest | grep browser_download_url | cut -d '"' -f 4)" -o /tmp/externcashai.vsix && code-insiders --install-extension /tmp/externcashai.vsix && rm /tmp/externcashai.vsix
+```
+
+**Windows (PowerShell):**
+```powershell
+$u=(Invoke-RestMethod https://api.github.com/repos/rodor03/externcashai-vscode-releases/releases/latest).assets[0].browser_download_url; Invoke-WebRequest $u -OutFile "$env:TEMP\externcashai.vsix"; code-insiders --install-extension "$env:TEMP\externcashai.vsix"; Remove-Item "$env:TEMP\externcashai.vsix"
+```
+
+</details>
 
 ### Ручная установка
 
