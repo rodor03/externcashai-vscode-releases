@@ -12,7 +12,7 @@
 ## Возможности
 
 - **Copilot Chat** (VS Code) — модели сервера в выпадающем списке Copilot Chat
-- **Cursor BYOK** (Cursor) — Apply ключа и Sync моделей в настройки Cursor Agent
+- **Cursor BYOK** (Cursor) — применение ключа и синхронизация моделей в настройки Cursor Agent
 - **Inline Completion** — tab-автокомплит (ghost text)
 - **Tool Calling** — вызов инструментов (function calling)
 - **Thinking/Reasoning** — reasoning-модели
@@ -42,12 +42,13 @@
 
 1. Установите тот же `.vsix` в Cursor и задайте API-ключ (сайдбар или
    `ExCashAI: Установить API-ключ`)
-2. В сайдбаре ExCashAI: **Применить в Cursor** (ключ + merge моделей в
-   `state.vscdb`)
+2. В сайдбаре ExCashAI: **Применить в Cursor** (ключ + слияние списка моделей
+   в `state.vscdb`)
 3. Полностью закройте и перезапустите Cursor (Reload Window недостаточно)
 4. В Agent / списке моделей выберите `ex-…` для ExternCash
-5. Чтобы снова пользоваться Composer/Pro Cursor: нажмите **Модели Cursor** в
-   сайдбаре (BYOK остаётся настроенным; Apply снова включает ExternCash)
+5. Чтобы снова пользоваться Composer/Pro Cursor: нажмите **Модели Cursor**
+   (**Use Cursor models**) в сайдбаре (BYOK остаётся настроенным; Apply снова
+   включает ExternCash)
 6. По желанию: **Скрыть модели Cursor** / **Показать модели Cursor** в сайдбаре
    переключают штатные записи Cursor в списке моделей (по возможности)
 7. Откройте Agent и отправьте короткое сообщение на модели `ex-…`, чтобы
@@ -58,23 +59,23 @@
 
 ### Id моделей и `/v1`
 
-- В Cursor пишутся `ex-<realId>` и для thinking — `ex-<realId>(effort)`
-  (ASCII allowlist значений effort).
+- В Cursor пишутся `ex-<modelId>` и для thinking — `ex-<modelId>(effort)`,
+  где `effort` — одно из фиксированных ASCII-значений.
 - `openAIBaseUrl` должен содержать путь `/v1` (расширение перезаписывает URL
   без `/v1`).
 - Успешный Apply ≠ «Agent уже работает» — нужен полный перезапуск Cursor и
   проверка на модели `ex-…`.
 
-### Fallback буфера обмена
+### Запасной вариант: буфер обмена
 
 Если нет CLI `cursor`, Apply копирует ключ в буфер — вставьте вручную в
-**Cursor Settings → Models** (enterprise / locked). После вставки очистите
-буфер, если ОС хранит историю буфера обмена.
+**Cursor Settings → Models** (корпоративные / заблокированные среды). После
+вставки очистите буфер, если ОС хранит историю буфера обмена.
 
 ### Безопасность / удаление
 
 - Не логируйте и не шарьте сырой API-ключ; Copy/Apply используют ключ только в
-  Extension Host.
+  процессе расширения (Extension Host).
 - После удаления расширения в настройках Cursor могут остаться записи `ex-*`.
   Расширение само их не чистит: удалите вручную в Cursor Settings → Models или
   повторите Apply после чистой установки.
@@ -88,14 +89,14 @@
 | `ExCashAI: Переключить inline…`                  | Вкл/выкл tab-автокомплит         | оба     |
 | `ExCashAI: Выбрать модель inline…`               | Модель автокомплита              | оба     |
 | `ExCashAI: Применить в Cursor`                   | Запись ключа и моделей           | Cursor  |
-| `ExCashAI: Синхронизировать модели с Cursor`     | Sync после Apply                 | Cursor  |
+| `ExCashAI: Синхронизировать модели с Cursor`     | Синхронизация после Apply        | Cursor  |
 | `ExCashAI: Выбрать модель чата`                  | Copilot Chat                     | VS Code |
 | `ExCashAI: Проверить обновления`                 | Обновления                       | оба     |
 | `ExCashAI: Скрыть встроенные модели Copilot`     | Скрыть встроенные модели         | VS Code |
 | `ExCashAI: Показать встроенные модели Copilot`   | Восстановить встроенные модели   | VS Code |
 
-Действия только в сайдбаре Cursor (не Command Palette): **Модели Cursor**,
-**Скрыть модели Cursor**, **Показать модели Cursor**.
+Действия только в сайдбаре Cursor (не Command Palette): **Модели Cursor**
+(**Use Cursor models**), **Скрыть модели Cursor**, **Показать модели Cursor**.
 
 ## Участник чата (VS Code)
 
@@ -130,8 +131,8 @@
 
 - Статус и API-ключ
 - Список моделей (вкл/выкл)
-- Секция **Cursor** (только в Cursor) — Apply / Copy / Sync / Модели Cursor /
-  Скрыть·Показать модели Cursor
+- Секция **Cursor** (только в Cursor) — Применить / Копировать / Синхронизировать /
+  Модели Cursor / Скрыть·Показать модели Cursor
 - Статистика токенов
 
 ## Требования
