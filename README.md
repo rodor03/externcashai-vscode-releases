@@ -63,7 +63,8 @@ the sidebar.
 ### Model ids and `/v1`
 
 - Models appear as `ex-<modelId>` and, for thinking models,
-  `ex-<modelId>(effort)` where `effort` is one of a fixed set of ASCII values.
+  `ex-<modelId>(effort)` with a supported effort level from the sidebar
+  (the extension writes only allowed values).
 - `openAIBaseUrl` must include the `/v1` path (the extension rewrites
   misconfigured URLs without `/v1`).
 - A successful Apply does **not** mean Agent is ready — fully restart Cursor,
@@ -145,7 +146,7 @@ The extension adds a sidebar panel with:
 - VS Code **1.104.0** or later, or a compatible Cursor build
 - GitHub Copilot extension (VS Code path only)
 - ExCashAI API key
-- For Cursor Apply/Sync: `sqlite3` and the `cursor` CLI when available
+- For Cursor Apply/Sync: `sqlite3` (required) and the `cursor` CLI when available
 
 ## License
 
