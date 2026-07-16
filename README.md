@@ -52,7 +52,7 @@ the GitHub Copilot extension.
 3. Fully quit and restart Cursor (Reload Window is not enough)
 4. In Agent / model picker, choose an `ex-…` model (ExCashAI)
 5. To use Cursor Composer/Pro again: click **Use Cursor models** in the sidebar
-   (BYOK stays configured; Apply turns ExternCash back on)
+   (BYOK stays configured; Apply turns ExCashAI back on)
 6. Optional: **Hide Cursor models** / **Show Cursor models** in the sidebar
    toggles built-in Cursor entries in the model picker (when the host supports it)
 7. Open Agent and send a short message using an `ex-…` model to confirm it works
