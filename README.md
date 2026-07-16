@@ -15,8 +15,8 @@ or as Cursor BYOK (Bring Your Own Key) with inline completions in **Cursor**.
   Copilot Chat model dropdown
 - **Cursor BYOK** (Cursor) — Apply API key + Sync models into Cursor Agent
   settings
-- **Inline Code Completion** — tab-autocomplete with ghost text suggestions
-  while typing
+- **Inline Code Completion** — tab-autocomplete with translucent inline
+  suggestions (ghost text) while typing
 - **Tool Calling** — full support for function/tool invocation
 - **Thinking/Reasoning** — support for reasoning-enabled models (extended
   thinking)
@@ -50,7 +50,7 @@ the GitHub Copilot extension.
 2. In the ExCashAI sidebar: **Apply to Cursor** (writes key + model merge into
    Cursor `state.vscdb`)
 3. Fully quit and restart Cursor (Reload Window is not enough)
-4. In Agent / model picker, choose an `ex-…` model for ExternCash
+4. In Agent / model picker, choose an `ex-…` model (ExCashAI)
 5. To use Cursor Composer/Pro again: click **Use Cursor models** in the sidebar
    (BYOK stays configured; Apply turns ExternCash back on)
 6. Optional: **Hide Cursor models** / **Show Cursor models** in the sidebar
@@ -78,8 +78,8 @@ environments). Clear the clipboard afterward if your OS keeps clipboard history.
 
 ### Security / uninstall notes
 
-- Do not log or share the raw API key; Copy/Apply use the key only in the
-  Extension Host.
+- Do not log or share the raw API key; Copy/Apply use the key only inside
+  the extension process (VS Code/Cursor Extension Host).
 - Uninstall may leave `ex-*` model entries in Cursor settings. Removing them is
   not automatic; clear them in Cursor Settings → Models, or re-Apply after a
   clean install if needed.
