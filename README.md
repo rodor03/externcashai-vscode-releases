@@ -54,7 +54,7 @@ the GitHub Copilot extension.
 5. To use Cursor Composer/Pro again: click **Use Cursor models** in the sidebar
    (BYOK stays configured; Apply turns ExternCash back on)
 6. Optional: **Hide Cursor models** / **Show Cursor models** in the sidebar
-   toggles built-in Cursor entries in the model picker (best-effort)
+   toggles built-in Cursor entries in the model picker (when the host supports it)
 7. Open Agent and send a short message using an `ex-…` model to confirm it works
 
 Then use **Sync models** after changing enable/disable or reasoning settings in
@@ -62,8 +62,8 @@ the sidebar.
 
 ### Model ids and `/v1`
 
-- Models are written as `ex-<realId>` and, for thinking models,
-  `ex-<realId>(effort)` (ASCII effort allowlist).
+- Models appear as `ex-<modelId>` and, for thinking models,
+  `ex-<modelId>(effort)` where `effort` is one of a fixed set of ASCII values.
 - `openAIBaseUrl` must include the `/v1` path (the extension rewrites
   misconfigured URLs without `/v1`).
 - A successful Apply does **not** mean Agent is ready — fully restart Cursor,
